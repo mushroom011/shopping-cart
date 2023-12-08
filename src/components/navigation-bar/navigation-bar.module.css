@@ -1,0 +1,59 @@
+.navBar a {
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 1.7rem;
+  color: #377789;
+}
+
+.navigation {
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  display: flex;
+  gap: 1.8rem;
+}
+
+.navigation a {
+  color: #343a40;
+  transition: all 0.2s;
+}
+
+.navigation a:hover {
+  color: #3f8aa4;
+}
+
+.cartLink {
+  position: relative;
+}
+
+.cartIcon {
+  width: 30px;
+}
+
+.cartCounter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #e25a5a;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -17px;
+  left: 19px;
+}
+
+@media (min-width: 650px) {
+  .navBar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}

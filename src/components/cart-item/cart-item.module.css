@@ -1,0 +1,32 @@
+.cardHorizontal {
+  text-align: center;
+
+  padding: 10px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+}
+
+.cardImg {
+  width: 80px;
+  height: 80px;
+}
+
+.cardText {
+  padding-block: 0.5rem;
+}
+
+.cardPrice {
+  color: #377789;
+}
+
+.priceAmount {
+  font-weight: 500;
+}
+
+@media (min-width: 650px) {
+  .cardHorizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

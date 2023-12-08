@@ -1,0 +1,37 @@
+.cardForm {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 0.4em 0.8em;
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #377789;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #3f8aa4;
+}
+
+.btnRemove {
+  background-color: #e25a5a;
+}
+
+.btnRemove:hover {
+  background-color: #f76b6b;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+}

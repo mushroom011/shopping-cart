@@ -1,0 +1,51 @@
+.card {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+}
+
+.cardImg {
+  width: 100%;
+  height: auto;
+}
+
+.cardText {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 0.5rem;
+}
+
+.cardPrice {
+  color: #377789;
+}
+
+.priceAmount {
+  font-weight: 500;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 0.4em;
+  width: 100%;
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #377789;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #3f8aa4;
+}
+
+@media (min-width: 650px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
