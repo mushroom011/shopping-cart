@@ -7,7 +7,7 @@ const Collections = () => {
   const { data, error, loading } = useData(COLLECTIONS_URL);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>.</div>;
   } else if (error) {
     console.error("Error with collections loading! ", error);
     return <div>Something went wrong 🤔</div>;
