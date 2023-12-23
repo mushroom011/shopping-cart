@@ -1,3 +1,12 @@
+.collectionCard a {
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.collectionCard a:hover {
+  color: #3f8aa4;
+}
+
 .collectionCard img {
   width: 200px;
   height: 200px;

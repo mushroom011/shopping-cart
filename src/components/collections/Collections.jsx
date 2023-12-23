@@ -1,5 +1,6 @@
 import { useData } from "../../hooks/useData";
 import { COLLECTIONS_URL } from "../../constants";
+import { Link } from "react-router-dom";
 import styles from "./collections.module.css";
 
 const Collections = () => {
@@ -14,11 +15,10 @@ const Collections = () => {
     return data.collections.edges.map((collection) => {
       return (
         <div key={collection.node.id} className={styles.collectionCard}>
-          <img
-            src={collection.node.image.url}
-            alt={collection.node.title}
-          />
-          <p className={styles.cardText}>{collection.node.title}</p>
+          <Link to="/products" key={collection.node.id}>
+            <img src={collection.node.image.url} alt={collection.node.title} />
+            <p className={styles.cardText}>{collection.node.title}</p>
+          </Link>
         </div>
       );
     });
