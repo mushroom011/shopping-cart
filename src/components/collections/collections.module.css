@@ -1,5 +1,6 @@
 .collectionCard a {
   text-decoration: none;
+  color: #343a40;
   transition: all 0.2s;
 }
 
