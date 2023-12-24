@@ -4,6 +4,7 @@ import NavigationBar from "../navigation-bar/NavigationBar";
 import { useData } from "../../hooks/useData";
 import { PRODUCTS_URL } from "../../constants";
 import styles from "./app.module.css";
+import Loader from "../loader/Loader";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -45,7 +46,7 @@ const App = () => {
   let content = null;
 
   if (loading) {
-    content = <div>Loading...</div>;
+    content = <Loader/>;
   } else if (error) {
     content = <div>Something went wrong 🤔</div>;
     console.error("Error with products loading! ", error);
