@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import NavigationBar from "../navigation-bar/NavigationBar";
-import { useData } from "../../hooks/useData";
+import { useSelector, useDispatch } from "react-redux";
 import { PRODUCTS_URL } from "../../constants";
+import { fetchProducts } from "../../features/products/productsSlice";
 import styles from "./app.module.css";
 
 const App = () => {
@@ -12,7 +13,11 @@ const App = () => {
     0
   );
 
-  const { data, error, loading } = useData(PRODUCTS_URL);
+  const { data, loading, error } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(fetchProducts(PRODUCTS_URL))
+  }, [dispatch])
 
   const addProductToCart = (id, quantity) => () => {
     setCartItems((prevItems) => {
@@ -53,7 +58,7 @@ const App = () => {
     content = (
       <Outlet
         context={{
-          products: data.products.edges,
+          products: data,
           cartItems,
           addProductToCart,
           removeProductFromCart,
