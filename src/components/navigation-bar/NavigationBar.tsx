@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./navigation-bar.module.css";
 
-const NavigationBar = ({ cartItemsCount }) => {
+interface NavigationBarProps {
+  cartItemsCount: number
+}
+
+const NavigationBar = ({ cartItemsCount }: NavigationBarProps) => {
   return (
     <nav className={styles.navBar}>
       <Link to="/">

@@ -1,11 +1,18 @@
 import styles from "./card-form.module.css";
 
+interface CardFormProps {
+  quantity: number;
+  removeProductFromCart: () => void;
+  incQuantity: () => void;
+  decQuantity: (() => void) | undefined;
+}
+
 const CardForm = ({
   quantity,
   removeProductFromCart,
   incQuantity,
-  decQuantity
-}) => {
+  decQuantity,
+}: CardFormProps) => {
   return (
     <div className={styles.cardForm}>
       <button className={styles.btn} onClick={decQuantity}>
@@ -15,7 +22,10 @@ const CardForm = ({
       <button className={styles.btn} onClick={incQuantity}>
         +
       </button>
-      <button onClick={removeProductFromCart} className={`${styles.btn} ${styles.btnRemove}`}>
+      <button
+        onClick={removeProductFromCart}
+        className={`${styles.btn} ${styles.btnRemove}`}
+      >
         x
       </button>
     </div>

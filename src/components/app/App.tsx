@@ -3,18 +3,19 @@ import { Outlet } from "react-router-dom";
 import NavigationBar from "../navigation-bar/NavigationBar";
 import { useData } from "../../hooks/useData";
 import { PRODUCTS_URL } from "../../constants";
+import { ICartItem, type DataProducts, type ContextType } from "../../types";
 import styles from "./app.module.css";
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<ICartItem[]>([]);
   const cartItemsCount = cartItems.reduce(
     (prev, curr) => prev + curr.quantity,
     0
   );
 
-  const { data, error, loading } = useData(PRODUCTS_URL);
+  const { data, error, loading } = useData<DataProducts>(PRODUCTS_URL);
 
-  const addProductToCart = (id, quantity) => () => {
+  const addProductToCart = (id: string, quantity: number) => () => {
     setCartItems((prevItems) => {
       const itemIndex = prevItems.findIndex((item) => item.id === id);
       if (itemIndex !== -1) {
@@ -31,14 +32,14 @@ const App = () => {
     });
   };
 
-  const decQuantity = (id, prevQuantity) => {
+  const decQuantity = (id: string, prevQuantity: number) => {
     if (prevQuantity === 1) return;
     return addProductToCart(id, -1);
   };
 
-  const incQuantity = (id) => addProductToCart(id, 1);
+  const incQuantity = (id: string) => addProductToCart(id, 1);
 
-  const removeProductFromCart = (id) => () => {
+  const removeProductFromCart = (id: string) => () => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
@@ -52,14 +53,16 @@ const App = () => {
   } else {
     content = (
       <Outlet
-        context={{
-          products: data.products.edges,
-          cartItems,
-          addProductToCart,
-          removeProductFromCart,
-          incQuantity,
-          decQuantity,
-        }}
+        context={
+          {
+            products: data?.products.edges,
+            cartItems,
+            addProductToCart,
+            removeProductFromCart,
+            incQuantity,
+            decQuantity,
+          } satisfies ContextType
+        }
       />
     );
   }
