@@ -1,15 +1,16 @@
 import { useOutletContext } from "react-router-dom";
 import ProductItem from "../../components/product-item/ProductItem";
+import { type ContextType } from "../../types";
 import styles from "./products.module.css";
 
 const Products = () => {
-  const {products, addProductToCart} = useOutletContext();
+  const { products, addProductToCart } = useOutletContext<ContextType>();
 
   return (
     <>
       <h1>Products</h1>
       <div className={styles.cards}>
-        {products.map((product) => (
+        {products?.map((product) => (
           <ProductItem
             key={product.node.id}
             product={product}

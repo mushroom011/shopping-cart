@@ -1,10 +1,11 @@
 import { useData } from "../../hooks/useData";
 import { COLLECTIONS_URL } from "../../constants";
 import { Link } from "react-router-dom";
+import { type DataCollections } from "../../types";
 import styles from "./collections.module.css";
 
 const Collections = () => {
-  const { data, error, loading } = useData(COLLECTIONS_URL);
+  const { data, error, loading } = useData<DataCollections>(COLLECTIONS_URL);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -12,7 +13,7 @@ const Collections = () => {
     console.error("Error with collections loading! ", error);
     return <div>Something went wrong 🤔</div>;
   } else {
-    return data.collections.edges.map((collection) => {
+    return data?.collections.edges.map((collection) => {
       return (
         <div key={collection.node.id} className={styles.collectionCard}>
           <Link to="/products" key={collection.node.id}>

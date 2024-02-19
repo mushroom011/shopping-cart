@@ -1,4 +1,4 @@
-import Collections from "./../../components/collections/Collections";
+import Collections from "../../components/collections/Collections";
 import styles from "./home.module.css";
 
 const Home = () => {

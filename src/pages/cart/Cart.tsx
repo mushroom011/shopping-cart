@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import CartItem from "../../components/cart-item/CartItem";
+import { type ContextType } from '../../types'
 import styles from "./cart.module.css";
 
 const Cart = () => {
@@ -9,7 +10,7 @@ const Cart = () => {
     removeProductFromCart,
     incQuantity,
     decQuantity,
-  } = useOutletContext();
+  } = useOutletContext<ContextType>();
 
   let totalPriceForCart = 0;
   let content = (
@@ -18,7 +19,7 @@ const Cart = () => {
 
   if (cartItems.length !== 0) {
     const items = cartItems.map((item) => {
-      const productItem = products.find((product) => product.node.id === item.id);
+      const productItem = products?.find((product) => product.node.id === item.id);
 
       if (!productItem) return null;
 
@@ -29,7 +30,7 @@ const Cart = () => {
       return (
         <CartItem
           key={item.id}
-          item={productItem}
+          product={productItem}
           total={total}
           quantity={item.quantity}
           removeProductFromCart={removeProductFromCart}
