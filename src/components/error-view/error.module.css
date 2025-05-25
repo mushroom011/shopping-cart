@@ -1,0 +1,14 @@
+.pageContent {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: min(80%, 1000px);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.pageContent h1 {
+  margin-bottom: 1rem;
+}

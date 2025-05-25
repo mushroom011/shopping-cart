@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { IDataCollections } from "../../types";
 import styles from "./collections.module.css";
 import Loader from "../loader/Loader";
+import ErrorView from "../error-view/ErrorView";
 
 const Collections = () => {
   const { data, error, loading } = useData<IDataCollections>(COLLECTIONS_URL);
@@ -13,8 +14,7 @@ const Collections = () => {
   }
 
   if (error) {
-    console.error("Error with collections loading! ", error);
-    return <div>Something went wrong 🤔</div>;
+    return <ErrorView error={error}/>
   }
 
   return data?.collections.edges.map((collection) => {

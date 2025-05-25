@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { IContextType } from "../../types";
 import styles from "./content-view.module.css";
 import Loader from "../loader/Loader";
+import ErrorView from "../error-view/ErrorView";
 
 interface IContentViewProps {
   context: IContextType;
@@ -19,8 +20,7 @@ const ContentView = ({
   }
 
   if (error) {
-    console.error("Error with products loading! ", error);
-    return <div>Something went wrong 🤔</div>;
+    return <ErrorView error={error}/>
   }
 
   return (
