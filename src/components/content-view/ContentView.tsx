@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { IContextType } from "../../types";
 import styles from "./content-view.module.css";
+import Loader from "../loader/Loader";
 
 interface IContentViewProps {
   context: IContextType;
@@ -14,7 +15,7 @@ const ContentView = ({
   context,
 }: IContentViewProps) => {
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   if (error) {
