@@ -9,22 +9,24 @@ const Collections = () => {
   const { data, error, loading } = useData<IDataCollections>(COLLECTIONS_URL);
 
   if (loading) {
-    return <Loader/>;
-  } else if (error) {
+    return <Loader />;
+  }
+
+  if (error) {
     console.error("Error with collections loading! ", error);
     return <div>Something went wrong 🤔</div>;
-  } else {
-    return data?.collections.edges.map((collection) => {
-      return (
-        <div key={collection.node.id} className={styles.collectionCard}>
-          <Link to="/products" key={collection.node.id}>
-            <img src={collection.node.image.url} alt={collection.node.title} />
-            <p className={styles.cardText}>{collection.node.title}</p>
-          </Link>
-        </div>
-      );
-    });
   }
+
+  return data?.collections.edges.map((collection) => {
+    return (
+      <div key={collection.node.id} className={styles.collectionCard}>
+        <Link to="/products" key={collection.node.id}>
+          <img src={collection.node.image.url} alt={collection.node.title} />
+          <p className={styles.cardText}>{collection.node.title}</p>
+        </Link>
+      </div>
+    );
+  });
 };
 
 export default Collections;
