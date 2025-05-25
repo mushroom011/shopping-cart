@@ -33,7 +33,9 @@ const App = () => {
   };
 
   const decQuantity = (id: string, prevQuantity: number) => {
-    if (prevQuantity === 1) return;
+    if (prevQuantity === 1) {
+      return removeProductFromCart(id);
+    }
     return addProductToCart(id, -1);
   };
 
