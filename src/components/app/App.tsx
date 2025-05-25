@@ -3,7 +3,7 @@ import NavigationBar from "../navigation-bar/NavigationBar";
 import { useData } from "../../hooks/useData";
 import { PRODUCTS_URL } from "../../constants";
 import { ICartItem, IDataProducts } from "../../types";
-import ContentLoader from "../content-loader/ContentLoader";
+import ContentView from "../content-view/ContentView";
 import styles from "./app.module.css";
 
 const App = () => {
@@ -48,7 +48,7 @@ const App = () => {
       <header className={styles.pageHeader}>
         <NavigationBar cartItemsCount={cartItemsCount} />
       </header>
-      <ContentLoader
+      <ContentView
         error={error}
         loading={loading}
         context={{

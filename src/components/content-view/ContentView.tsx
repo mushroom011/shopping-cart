@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { IContextType } from "../../types";
-import styles from "./content-loader.module.css";
+import styles from "./content-view.module.css";
 
 interface IContentViewProps {
   context: IContextType;
