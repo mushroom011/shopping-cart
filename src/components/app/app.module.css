@@ -4,21 +4,6 @@
   border-bottom: 1px solid #dee2e6;
 }
 
-.pageContent {
-  flex-grow: 1;
-
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  width: min(80%, 1000px);
-  margin-inline: auto;
-  text-align: center;
-}
-
-.pageContent h1 {
-  margin-bottom: 1rem;
-}
-
 .pageFooter p {
   color: #c2c2c2;
   padding: 1rem 0;

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
 import NavigationBar from "../navigation-bar/NavigationBar";
 import { useData } from "../../hooks/useData";
 import { PRODUCTS_URL } from "../../constants";
-import { ICartItem, type DataProducts, type ContextType } from "../../types";
+import { ICartItem, IDataProducts } from "../../types";
+import ContentLoader from "../content-loader/ContentLoader";
 import styles from "./app.module.css";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
     0
   );
 
-  const { data, error, loading } = useData<DataProducts>(PRODUCTS_URL);
+  const { data, error, loading } = useData<IDataProducts>(PRODUCTS_URL);
 
   const addProductToCart = (id: string, quantity: number) => () => {
     setCartItems((prevItems) => {
@@ -43,36 +43,23 @@ const App = () => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  let content = null;
-
-  if (loading) {
-    content = <div>Loading...</div>;
-  } else if (error) {
-    content = <div>Something went wrong 🤔</div>;
-    console.error("Error with products loading! ", error);
-  } else {
-    content = (
-      <Outlet
-        context={
-          {
-            products: data?.products.edges,
-            cartItems,
-            addProductToCart,
-            removeProductFromCart,
-            incQuantity,
-            decQuantity,
-          } satisfies ContextType
-        }
-      />
-    );
-  }
-
   return (
     <>
       <header className={styles.pageHeader}>
         <NavigationBar cartItemsCount={cartItemsCount} />
       </header>
-      <div className={styles.pageContent}>{content}</div>
+      <ContentLoader
+        error={error}
+        loading={loading}
+        context={{
+          products: data?.products.edges,
+          cartItems,
+          addProductToCart,
+          removeProductFromCart,
+          incQuantity,
+          decQuantity,
+        }}
+      />
       <footer className={styles.pageFooter}>
         <p>Copyright © Mushroom011</p>
       </footer>

@@ -22,7 +22,7 @@ export interface IProduct {
   };
 }
 
-export type DataProducts = {
+export interface IDataProducts {
   products: {
     edges: IProduct[];
   };
@@ -33,24 +33,29 @@ export interface ICartItem {
   quantity: number;
 }
 
+export interface IImage {
+  id: string;
+  url: string;
+}
+
 export interface ICollection {
   node: {
     id: string;
     handle: string;
     title: string;
     description: string;
-    image: { id: string; url: string };
+    image: IImage;
   };
 }
 
-export type DataCollections = {
+export interface IDataCollections {
   collections: {
     edges: ICollection[];
   };
 };
 
-export type ContextType = {
-  products: IProduct[] | undefined;
+export interface IContextType {
+  products?: IProduct[];
   cartItems: ICartItem[];
   addProductToCart: (id: string, quantity: number) => () => void;
   removeProductFromCart: (id: string) => () => void;
