@@ -2,17 +2,17 @@ import { Outlet } from "react-router-dom";
 import { IContextType } from "../../types";
 import styles from "./content-loader.module.css";
 
-interface IContentLoaderProps {
+interface IContentViewProps {
   context: IContextType;
   loading: boolean;
   error: string | null;
 }
 
-const ContentLoader = ({
+const ContentView = ({
   loading,
   error,
   context,
-}: IContentLoaderProps) => {
+}: IContentViewProps) => {
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -31,4 +31,4 @@ const ContentLoader = ({
   )
 };
 
-export default ContentLoader;
+export default ContentView;
