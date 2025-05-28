@@ -2,8 +2,7 @@ import CardForm from "../card-form/CardForm";
 import { IProduct } from "../../types";
 import styles from "./cart-item.module.css";
 
-
-interface CartItemProps {
+interface ICartItemProps {
   product: IProduct;
   total: number;
   quantity: number;
@@ -19,7 +18,7 @@ const CartItem = ({
   removeProductFromCart,
   incQuantity,
   decQuantity,
-}: CartItemProps) => {
+}: ICartItemProps) => {
   return (
     <div key={product.node.id} className={styles.cardHorizontal}>
       <img

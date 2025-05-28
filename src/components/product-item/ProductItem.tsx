@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import CardForm from "../card-form/CardForm";
-import { IProduct, type ContextType } from "../../types";
+import { IProduct, IContext } from "../../types";
 import styles from "./product-item.module.css";
 
 interface ProductItemProps {
@@ -9,7 +9,7 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ product, addProductToCart }: ProductItemProps) => {
-  const { cartItems, removeProductFromCart, incQuantity, decQuantity } = useOutletContext<ContextType>();
+  const { cartItems, removeProductFromCart, incQuantity, decQuantity } = useOutletContext<IContext>();
   const item = cartItems.find((item) => item.id === product.node.id);
   const quantity = item ? item.quantity : 0;
 

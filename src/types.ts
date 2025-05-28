@@ -54,7 +54,7 @@ export interface IDataCollections {
   };
 };
 
-export interface IContextType {
+export interface IContext {
   products?: IProduct[];
   cartItems: ICartItem[];
   addProductToCart: (id: string, quantity: number) => () => void;

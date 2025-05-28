@@ -1,6 +1,6 @@
 import styles from "./card-form.module.css";
 
-interface CardFormProps {
+interface ICardFormProps {
   quantity: number;
   removeProductFromCart: () => void;
   incQuantity: () => void;
@@ -12,7 +12,7 @@ const CardForm = ({
   removeProductFromCart,
   incQuantity,
   decQuantity,
-}: CardFormProps) => {
+}: ICardFormProps) => {
   return (
     <div className={styles.cardForm}>
       <button className={styles.btn} onClick={decQuantity}>

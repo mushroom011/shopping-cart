@@ -1,33 +1,30 @@
 import { useRouteError, isRouteErrorResponse, Link } from "react-router-dom";
 import styles from "./root-boundary.module.css";
 
-const RootBoundary = () => {
-  const error = useRouteError();
-  let text = null;
-
+const getErrorText = (error: unknown) => {
   if (isRouteErrorResponse(error)) {
     switch (error.status) {
       case 404:
-        text = "This page doesn't exist!";
-        break;
+        return "This page doesn't exist!";
       case 401:
-        text = "You aren't authorized to see this";
-        break;
+        return "You aren't authorized to see this";
       case 503:
-        text = "Looks like our API is down";
-        break;
+        return "Looks like our API is down";
       case 418:
-        text = "🫖";
-        break;
+        return "🫖";
       default:
-        text = "Something went wrong";
+        return "Something went wrong";
     }
   }
+}
+
+const RootBoundary = () => {
+  const error = useRouteError();
 
   return (
     <div className={styles.content}>
       <p>
-        {text} <Link to="/">Home Page</Link> 🙂
+        {getErrorText(error)} <Link to="/">Home Page</Link> 🙂
       </p>
     </div>
   );

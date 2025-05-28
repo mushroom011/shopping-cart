@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import CartItem from "../../components/cart-item/CartItem";
-import { type ContextType } from '../../types'
+import { IContext } from '../../types'
 import styles from "./cart.module.css";
 
 const Cart = () => {
@@ -10,7 +10,7 @@ const Cart = () => {
     removeProductFromCart,
     incQuantity,
     decQuantity,
-  } = useOutletContext<ContextType>();
+  } = useOutletContext<IContext>();
 
   let totalPriceForCart = 0;
   let content = (

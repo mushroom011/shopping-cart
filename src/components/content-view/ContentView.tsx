@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { IContextType } from "../../types";
+import { IContext } from "../../types";
 import styles from "./content-view.module.css";
 import Loader from "../loader/Loader";
 import ErrorView from "../error-view/ErrorView";
 
 interface IContentViewProps {
-  context: IContextType;
+  context: IContext;
   loading: boolean;
   error: string | null;
 }

@@ -36,9 +36,9 @@ const NavigationBar = ({ cartItemsCount }: NavigationBarProps) => {
                 <path d="M8,3V7H21l-2,7H8v2H18a1,1,0,0,1,0,2H7a1,1,0,0,1-1-1V4H4A1,1,0,0,1,4,2H7A1,1,0,0,1,8,3ZM6,20.5A1.5,1.5,0,1,0,7.5,19,1.5,1.5,0,0,0,6,20.5Zm9,0A1.5,1.5,0,1,0,16.5,19,1.5,1.5,0,0,0,15,20.5Z"></path>
               </g>
             </svg>
-            {cartItemsCount > 0 ? (
+            {cartItemsCount > 0 && (
               <span className={styles.cartCounter}>{cartItemsCount}</span>
-            ) : null}
+            )}
           </Link>
         </li>
       </ul>

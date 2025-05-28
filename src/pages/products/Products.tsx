@@ -1,10 +1,10 @@
 import { useOutletContext } from "react-router-dom";
 import ProductItem from "../../components/product-item/ProductItem";
-import { type ContextType } from "../../types";
+import { IContext } from "../../types";
 import styles from "./products.module.css";
 
 const Products = () => {
-  const { products, addProductToCart } = useOutletContext<ContextType>();
+  const { products, addProductToCart } = useOutletContext<IContext>();
 
   return (
     <>
