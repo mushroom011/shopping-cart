@@ -1,8 +1,8 @@
 import { useState } from "react";
-import NavigationBar from "../navigation-bar/NavigationBar";
 import { useData } from "../../hooks/useData";
 import { PRODUCTS_URL } from "../../constants";
 import { ICartItem, IDataProducts } from "../../types";
+import Header from "../header/Header";
 import ContentView from "../content-view/ContentView";
 import styles from "./app.module.css";
 
@@ -47,9 +47,7 @@ const App = () => {
 
   return (
     <>
-      <header className={styles.pageHeader}>
-        <NavigationBar cartItemsCount={cartItemsCount} />
-      </header>
+      <Header cartItemsCount={cartItemsCount}/>
       <ContentView
         error={error}
         loading={loading}
