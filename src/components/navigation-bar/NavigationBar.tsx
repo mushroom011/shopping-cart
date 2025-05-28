@@ -9,7 +9,7 @@ const NavigationBar = ({ cartItemsCount }: NavigationBarProps) => {
   return (
     <nav className={styles.navBar}>
       <Link to="/">
-        <span className={styles.logo}>Awesom Store</span>
+        <span className={styles.logo}>Awesome Store</span>
       </Link>
       <ul className={styles.navigation}>
         <li>
