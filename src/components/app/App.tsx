@@ -4,7 +4,7 @@ import { PRODUCTS_URL } from "../../constants";
 import { ICartItem, IDataProducts } from "../../types";
 import Header from "../header/Header";
 import ContentView from "../content-view/ContentView";
-import styles from "./app.module.css";
+import Footer from "../footer/Footer";
 
 const App = () => {
   const [cartItems, setCartItems] = useState<ICartItem[]>([]);
@@ -60,9 +60,7 @@ const App = () => {
           decQuantity,
         }}
       />
-      <footer className={styles.pageFooter}>
-        <p>Copyright © Mushroom011</p>
-      </footer>
+      <Footer/>
     </>
   );
 };
